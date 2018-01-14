@@ -27,15 +27,24 @@
                 <div id="ao" class="tab-pane fade active in padding-top-bottom-10">
                   <div class="widget col-lg-10 col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1 mar-b-20 " ng-repeat="app in ap" >
                         <div class="widget-body"> 
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mar-b-20">
-                            <span class="text-dim font-16 bold text ">{{app.title}}</span>
-                            </div>
-                            <div class="col-lg-12 col-md-2 col-sm-12 col-xs-12 mar-b-20">
-                                    <span class="">{{app.body}}</span>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mar-b-20">
-                                    <span class="text-dim">{{app.date|date:'medium'}}</span>
-                            </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20">
+                                <span class="text-dim font-16 bold text ">{{app.title}}</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text bold text-right">
+                                    <span class="text-dim font-14 text font-thin ">{{app.type}}</span>
+                                </div>
+                                <div class="col-lg-12 col-md-2 col-sm-12 col-xs-12 mar-b-20">
+                                        <span class="">{{app.body}}</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20">
+                                        <span class="text-dim">{{app.date|date:'medium'}}</span>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.status==1">
+                                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal2" ng-click="viewReply(app._id)">View Reply</button>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.status==0">
+                                        <button class="btn btn-info" ng-readonly="true" >Pending</button>
+                                </div>
 
                         </div>
                     </div>
@@ -93,3 +102,19 @@
                 </div>
             </div>
             </div>
+            <div class="modal fade" id="myModal2" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title bold text font-16">Reply Application</h4>
+                        </div>
+                        <div class="modal-body">
+                         <p class="text">{{reply.title}}</p>
+                         <p class="">{{reply.body}}</p>
+                         
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>

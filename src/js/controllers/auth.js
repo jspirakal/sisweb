@@ -28,7 +28,7 @@ function LoginCtrl($scope,$state,$http,$location) {
         },
         error:function(err){
              $('#login_r').html('<div class="alert alert-danger alert-dismissable fade in">'+
-                '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+                '<a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
                 '<strong>Error!</strong> '+err.responseJSON+
             '</div>');
         }

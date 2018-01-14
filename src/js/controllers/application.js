@@ -8,25 +8,24 @@ angular
 .controller('AdminApp',['$scope','$state','$http', AdminApp]);
 function ApplicationCtrl($scope,$state,$http) {
 $scope.sendApp = function() {
-    if($scope.app.type==='general')
-    {
+    console.log($scope.app);
     $scope.app.rollno=localStorage.getItem('rollno');
     $http.post('http://localhost:6200/sendapplication',$scope.app)
     .then(function(res){
         console.log(res);
                 $('#sendapp_r').html('<div class="alert alert-success alert-dismissable fade in">'+
-    '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+    '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
     '<strong>Success!</strong> Application submitted succesfully!'+
   '</div>');
         // $scope.ap=res.data;
-    }),
+    },
     function(err){
                 $('#sendapp_r').html('<div class="alert alert-danger alert-dismissable fade in">'+
-    '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+    '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
     '<strong>Error!</strong> Try again!'+
   '</div>');
-    }
-    }
+    });
+
 };
 $scope.getApp = function() {
     $http.get('http://localhost:6200/getapplications/13054119-158')
@@ -36,6 +35,14 @@ $scope.getApp = function() {
     })
 };
 $scope.getApp();
+$scope.viewReply=function(id){
+    $http.get('http://localhost:6200/getreply/'+id+'')
+    .then(function(res){
+        console.log(res);
+        $scope.reply=res.data;
+    })
+}
+
 }
 
 function AdminApp($scope,$state,$http) {
@@ -45,16 +52,15 @@ function AdminApp($scope,$state,$http) {
         $scope.app.rollno=localStorage.getItem('rollno');
         $http.post('http://localhost:6200/sendapplication',$scope.app)
         .then(function(res){
-            console.log(res);
                     $('#sendapp_r').html('<div class="alert alert-success alert-dismissable fade in">'+
-        '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+        '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
         '<strong>Success!</strong> Application submitted succesfully!'+
       '</div>');
             // $scope.ap=res.data;
         }),
         function(err){
                     $('#sendapp_r').html('<div class="alert alert-danger alert-dismissable fade in">'+
-        '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+        '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
         '<strong>Error!</strong> Try again!'+
       '</div>');
         }
@@ -74,9 +80,15 @@ function AdminApp($scope,$state,$http) {
         $scope.reply.appid=id;
         $http.post('http://localhost:6200/replyapplication',$scope.reply)
         .then(function(res){
-            console.log(res);
+            $('#replyapp_r').html('<div class="alert alert-success alert-dismissable fade in">'+
+            '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+            '<strong>Success!</strong> Application replied succesfully!'+
+          '</div>');
         },function(err){
-            console.log(err);
+            $('#sendapp_r').html('<div class="alert alert-danger alert-dismissable fade in">'+
+            '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+            '<strong>Error!</strong> Try again!'+
+          '</div>');
         })
     }
     $scope.getAllApp();
