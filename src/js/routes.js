@@ -7,7 +7,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
 
         // For unmatched routes
-        $urlRouterProvider.otherwise('/404');
+        $urlRouterProvider.otherwise('/');
         // $urlRouterProvider.when('/',{
             // url:'/user/home',
         // });
@@ -20,7 +20,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             })
             .state('user.home', {
                 url: '/home',
-                templateUrl: 'templates/dashboard.html'
+                templateUrl: 'templates/user/dashboard.html'
             })
             .state('user', {
                 url: '/user',
@@ -29,7 +29,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('user.profile', {
                 url: '/profile',
                 templateUrl: 'templates/user/profile.html',
-                controller:'Profile'
+                controller:'Student'
                 
             })
             .state('user.applications', {
@@ -41,17 +41,25 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/user',
                 templateUrl: 'templates/user/user.html'
             })
-            .state('tables', {
-                url: '/tables',
-                templateUrl: 'templates/tables.html'
+           
+            .state('admin', {
+                url: '/admin',
+                templateUrl: 'templates/admin/admin.html'
             })
-            .state('testing', {
-                url: '/test',
-                templateUrl: 'templates/testing.html'
+             .state('admin.home', {
+                url: '/home',
+                templateUrl: 'templates/admin/home.html'
             })
-            .state('testing.do', {
-                url: '/teste',
-                template: 'helo'
-            });
+             .state('admin.students', {
+                url: '/students',
+                templateUrl: 'templates/admin/students.html',
+                controller:'Student',
+                                
+            })
+             .state('admin.applications', {
+                url: '/applications',
+                templateUrl: 'templates/admin/applications.html',
+                controller:'AdminApp'
+            })
     }
 ]);

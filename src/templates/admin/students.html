@@ -2,9 +2,9 @@
                 <div class="row">
                     <nav class="text-center tabo-nav">
                         <ul class="nav nav-tabs tabo" >
-                            <li class="active" ><a class=" font-bold text-black" data-target="#ao" href=""  data-toggle="pill" ><i class="fa fa-square-o"></i> All Applications</a><div class="over" id="blockbusiness" ></div>
+                            <li class="active" ><a class=" font-bold text-black" data-target="#ao" href=""  data-toggle="pill" ><i class="fa fa-square-o"></i> All Students</a><div class="over" id="blockbusiness" ></div>
                                 </li>
-                                <li ><a class=" font-bold text-black" data-target="#no" href=""  data-toggle="pill" ><i class="fa fa-clock-o"></i> Send Application</a><div class="over" id="blockbusiness" ></div>
+                                <li ><a class=" font-bold text-black" data-target="#no" href=""  data-toggle="pill" ><i class="fa fa-clock-o"></i> Register new Student</a><div class="over" id="blockbusiness" ></div>
                                    </li>
                                 <!-- <li ><a class=" font-bold text-black" data-target="#po"  data-toggle="pill" ><i class="fa fa-pencil"></i> woking on</a><div class="over" id="blockbusiness" ></div>
                                </li>
@@ -25,20 +25,41 @@
         </div> -->
             <div class="tab-content tsb-cont col-md-12">
                 <div id="ao" class="tab-pane fade active in padding-top-bottom-10">
-                  <div class="widget col-lg-10 col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1 mar-b-20 " ng-repeat="app in ap" >
-                        <div class="widget-body"> 
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mar-b-20">
-                            <span class="text-dim font-16 bold text ">{{app.title}}</span>
-                            </div>
-                            <div class="col-lg-12 col-md-2 col-sm-12 col-xs-12 mar-b-20">
-                                    <span class="">{{app.body}}</span>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mar-b-20">
-                                    <span class="text-dim">{{app.date|date:'medium'}}</span>
-                            </div>
-
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                        <div class="row">
+                          <table class="table table-bordered table-hover">
+                            <tr>
+                              <th>Name</th>
+                              <th>F.Name</th>
+                              <th>Roll No</th>
+                              <th>Email</th>
+                              <th>Contact</th>
+                              <th>Address</th>
+                              <th>Degree</th>
+                              <th>Programe</th>
+                              
+                              <!-- <th class="text-center">Actions</th> -->
+                            </tr>
+                            <tr ng-repeat="s in students">
+                              <td>{{s.name}}</td>
+                              <td>{{s.fathername}}</td>                              
+                              <td>{{s.rollno}}</td>
+                              <td>{{s.email}}</td>
+                              <td>{{s.contact}}</td>                              
+                              <td>{{a.address}}</td>
+                              <td>{{a.degree}}</td>
+                              <td>{{a.programe}}</td>
+                              <!-- <td>{{a.smester}}</td> -->
+<!--                               
+                              <td class="text-center">
+                                <button class="ms-btn-teal ms-btn-xs">view</button>
+                                <button class="ms-btn-teal ms-btn-xs">update</button>
+                                <button class="ms-btn-red ms-btn-xs">delete</button>
+                              </td> -->
+                            </tr>
+                          </table>
                         </div>
-                    </div>
+                      </div>
                 </div>
                 <div id="no" class="tab-pane fade  in padding-top-bottom-10">
                    <div class="widget col-lg-10 col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1 mar-b-20 ">

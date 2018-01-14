@@ -4,7 +4,7 @@
 
 angular
 .module('RDash')
-.controller('Profile', ['$scope','$state','$http', ProfileCtrl]);
+.controller('Student', ['$scope','$state','$http', ProfileCtrl]);
 
 function ProfileCtrl($scope,$state,$http) {
 // $scope.alerts = [{
@@ -22,11 +22,20 @@ $scope.profile;
     // })
 // };
 $scope.getUser = function() {
-    $http.get('http://localhost:6200/getuser/13054119-158')
+    if(localStorage.getItem('rollno')=='admin')
+    {
+    $http.get('http://localhost:6200/getalluser')
+    .then(function(res){
+        console.log(res);
+        $scope.students=res.data;
+    })
+    } else {
+    $http.get('http://localhost:6200/getuser/'+localStorage.getItem('rollno')+'')
     .then(function(res){
         console.log(res);
         $scope.profile=res.data;
     })
+    }
 };
 $scope.getUser();
 $scope.closeAlert = function(index) {

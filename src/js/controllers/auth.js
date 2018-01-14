@@ -4,24 +4,43 @@
 
 angular
     .module('RDash')
-    .controller('LoginCtrl', ['$scope','$http','$state', LoginCtrl]);
+    .controller('LoginCtrl', ['$scope','$http','$location','$state', LoginCtrl]);
 
-function LoginCtrl($scope,$state,$http,Service) {
-    // $scope.alerts = [{
-    //     type: 'success',
-    //     msg: 'Thanks for visiting! Feel free to create pull requests to improve the dashboard!'
-    // }, {
-    //     type: 'danger',
-    //     msg: 'Found a bug? Create an issue with as many details as you can.'
-    // }];
-
+function LoginCtrl($scope,$state,$http,$location) {
     $scope.login = function() {
-        alert();
-        $http.post('http://localhost:6200/login',$scope.user)
-        .then(function(res){
-            console.log(res);
-            // $state.go('user.home');
+        $.ajax({
+        type: "POST",
+        url: 'http://localhost:6200/login',
+        dataType: 'JSON',
+        data: $scope.user,
+        success:function(res){
+            if(res.user==='student'){
+            localStorage.setItem('rollno',res.rollno);   
+            localStorage.setItem('user',res.user);   
+            window.location='/#!/user/home';
+        }
+          else{
+              console.log(res);
+            localStorage.setItem('rollno',res.rollno);   
+            localStorage.setItem('user',res.user);   
+            window.location='/#!/admin/home';
+        }
+        },
+        error:function(err){
+             $('#login_r').html('<div class="alert alert-danger alert-dismissable fade in">'+
+                '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+                '<strong>Error!</strong> '+err.responseJSON+
+            '</div>');
+        }
         });
+        //  $http({
+        // method: "POST",
+        // url: 'http://localhost:6200/login',
+        // data: $scope.user,
+        //  })
+        //  .then(function(res){
+        //      console.log(res);
+        //  });
 //         $http({
 //   method: 'GET',
 //   url: '/someUrl'
