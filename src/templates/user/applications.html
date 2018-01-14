@@ -1,0 +1,94 @@
+<div class="col-md-12" style="border-bottom:1px solid #eee;">
+                <div class="row">
+                    <nav class="text-center tabo-nav">
+                        <ul class="nav nav-tabs tabo" >
+                            <li class="active" ><a class=" font-bold text-black" data-target="#ao"  data-toggle="pill" ><i class="fa fa-square-o"></i> All Applications</a><div class="over" id="blockbusiness" ></div>
+                                </li>
+                                <li ><a class=" font-bold text-black" data-target="#no"  data-toggle="pill" ><i class="fa fa-clock-o"></i> Send Application</a><div class="over" id="blockbusiness" ></div>
+                                   </li>
+                                <li ><a class=" font-bold text-black" data-target="#po"  data-toggle="pill" ><i class="fa fa-pencil"></i> woking on</a><div class="over" id="blockbusiness" ></div>
+                               </li>
+                            <li ><a class=" font-bold text-black" data-target="#do"  data-toggle="pill" > <i class="fa fa-check"></i> Ready Now</a><div class="over" id="blockbusiness" ></div>
+                                </li>
+                            <li><a class=" font-bold text-black" data-target="#ro"  data-toggle="pill" ><i class="fa fa-shopping-bag"></i> received</a><div class="over" id="blockbusiness" ></div>
+                            </li>
+                            <!-- <li><a class="font-bold text-black" ng-click="showSearch()" ><i class="fa fa-search"></i></a></li> -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        <!-- <div class="search-bar">
+            <div class="contact-input">
+                <input class="" type="text" name="" placeholder="search by keyword..." ng-model="keyword" style="width:90%; border-radius:2px 0px 0px 2px;" value="">
+                <button ng-click="showSearch()" style="width:10%; padding-left:0px; padding-right:0px; border-left:0px; border-radius:0px 3px 3px 0px;" data-error="#err4" class="btn-red-md" name="contact" value=""> <i class="fa fa-remove"></i></button>
+            </div>
+        </div> -->
+            <div class="tab-content tsb-cont col-md-12">
+                <div id="ao" class="tab-pane fade active in padding-top-bottom-10">
+                  <div class="widget col-lg-10 col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1 mar-b-20 " ng-repeat="app in ap" >
+                        <div class="widget-body"> 
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mar-b-20">
+                            <span class="text-dim font-16 bold text ">{{app.title}}</span>
+                            </div>
+                            <div class="col-lg-12 col-md-2 col-sm-12 col-xs-12 mar-b-20">
+                                    <span class="">{{app.body}}</span>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mar-b-20">
+                                    <span class="text-dim">{{app.date|date:'medium'}}</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="no" class="tab-pane fade  in padding-top-bottom-10">
+                   <div class="widget col-lg-10 col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1 mar-b-20 ">
+                        <div class="widget-body"> 
+                            <form action="" ng-submit="sendApp()">
+                        <div class="form-group">
+                            <h3>Send Your Application</h3>
+                            </div>
+                        <div class="form-group">
+                            <select ng-model="app.type" name="type" class="form-control">
+                           <option value="">
+                           --select application type--
+                           </option>
+                           <option value="general">
+                           General
+                           </option>
+                           <option value="complain">Complain</option>
+                            </select>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Enter Applicatoin Title" type="text" name="rollno" ng-model="app.title" id="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Enter your Smester" type="text" name="password" ng-model="app.smester" id="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        
+                        <textarea placeholder="Enter your Application" rows="5" type="text" name="password" ng-model="app.body" id="" class="form-control">
+                        </textares>
+                    </div>
+                    <div class="form-group">
+                    <button type="button" ng-click="sendApp()" class="btn btn-primary"><i class="fa fa-cloud-upload"></i> Submit</button>
+                    </div>
+                    </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div id="po" class="tab-pane fade  in padding-top-bottom-10">                        
+                    
+                   kr
+                </div>
+                <div id="do" class="tab-pane fade  in padding-top-bottom-10">
+                   ha wa
+                   
+                </div>
+                <div id="ro" class="tab-pane fade in padding-top-bottom-10">
+                    
+                    kuj nai
+            
+                </div>
+            </div>
+            </div>
