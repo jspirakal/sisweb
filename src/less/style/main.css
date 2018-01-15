@@ -4,6 +4,9 @@ font-size: 16px;
 .font-20{
     font-size: 20px;
     }
+    .font-30{
+        font-size: 30px;
+        }
     .mar-b-20{
             margin-bottom: 20px;
     }
@@ -29,4 +32,7 @@ font-size: 16px;
 }
 .navbar-brand{
     padding: 0px;
+}
+.form-control:input{
+    height: 40px !important;
 }

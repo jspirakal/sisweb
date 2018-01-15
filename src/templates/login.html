@@ -24,16 +24,18 @@
  
         <form action="">
         <!-- <div class="form-group"> -->
-            <p class="text bold font-20 text-center ">Login To SIS</p>
+            <p class="text bold font-20 text-center mar-b-20 ">Login To Sdudent Information System</p>
             <!-- </div> -->
     <div class="form-group">
-        <input placeholder="Enter your Roll No" type="text" name="rollno" ng-model="user.rollno" id="" class="form-control">
+        <input placeholder="Enter your Roll No" style="height:45px" type="text" name="rollno" ng-model="user.rollno" id="" class="form-control">
     </div>
+    {{user.rollno}}
     <div class="form-group">
-        <input placeholder="Enter your Password" type="password" name="password" ng-model="user.password" id="" class="form-control">
+        <input placeholder="Enter your Password" style="height:45px" type="password" name="password" ng-model="user.password" id="" class="form-control">
     </div>
+    {{user.password}}
     <div class="form-group text-center">
-       <button type="button" ng-click="login()" class="btn btn-info btn-block"><i class="fa fa-key"></i> Login</button>
+       <button type="button" ng-click="login()" style="height:45px" class="btn btn-info btn-block"><i class="fa fa-key"></i> Login</button>
     </div>
     <div class="form-group">
         <div id="login_r"></div>
