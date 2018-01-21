@@ -30,7 +30,14 @@ $scope.getUser = function() {
         $scope.students=res.data;
     })
     } else {
-    $http.get('http://localhost:6200/getuser/'+localStorage.getItem('rollno')+'')
+    $http({
+        url:'http://localhost:6200/getuser/'+localStorage.getItem('rollno'),
+        method:'get',
+        headers: {
+            'Authorization':'Baerer '+localStorage.getItem('token')
+          }
+        })
+    // }).get('http://localhost:6200/getuser/'+localStorage.getItem('rollno')+'')
     .then(function(res){
         console.log(res);
         $scope.profile=res.data;

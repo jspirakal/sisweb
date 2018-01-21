@@ -37,14 +37,15 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'templates/user/applications.html',
                 controller:'Application'
             })
-            .state('user.timetable', {
-                url: '/user',
-                templateUrl: 'templates/user/user.html'
-            })
             .state('user.news', {
                 url: '/news',
                 templateUrl: 'templates/user/news.html',
                 controller:'News'
+            })
+            .state('user.timetable', {
+                url: '/timetable',
+                templateUrl: 'templates/user/timetable.html',
+                controller:'Time'
             })
             .state('admin', {
                 url: '/admin',
@@ -64,6 +65,11 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/applications',
                 templateUrl: 'templates/admin/applications.html',
                 controller:'AdminApp'
+            })
+            .state('admin.timetable', {
+                url: '/timetable',
+                templateUrl: 'templates/admin/timetable.html',
+                controller:'Time'
             })
             .state('admin.news', {
                 url: '/news',

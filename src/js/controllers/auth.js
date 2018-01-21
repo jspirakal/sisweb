@@ -15,13 +15,15 @@ function LoginCtrl($scope,$state,$http,$location) {
         data: $scope.user,
         success:function(res){
             if(res.user==='student'){
-            localStorage.setItem('rollno',res.rollno);   
+            localStorage.setItem('rollno',res.rollno); 
+            localStorage.setItem('token',res.token);   
             localStorage.setItem('user',res.user);   
             window.location='/#!/user/home';
         }
           else{
               console.log(res);
-            localStorage.setItem('rollno',res.rollno);   
+            localStorage.setItem('rollno',res.rollno);
+            localStorage.setItem('token',res.token);            
             localStorage.setItem('user',res.user);   
             window.location='/#!/admin/home';
         }

@@ -5,7 +5,49 @@
 angular
 .module('RDash')
 .controller('Application', ['$scope','$state','$http', ApplicationCtrl])
-.controller('AdminApp',['$scope','$state','$http', AdminApp]);
+.controller('AdminApp',['$scope','$state','$http', AdminApp])
+.controller('Time', ['$scope','$state','$http', TCtrl]);
+function TCtrl($scope,$state,$http) {
+
+$scope.sendTimeTable = function() {
+    var file=document.getElementById('timetable');
+    file=file.files[0];
+    var formData=new FormData();
+    formData.append('timetable',file,file.name);
+    formData.append('smester',$scope.tt.smester);
+    formData.append('department',$scope.tt.department);
+    console.log(formData);
+    $http({
+        url:'http://localhost:6200/sendtimetable',
+        data:formData,
+        // cache:true,
+        method:'post',
+        headers:{"Content-type":undefined}
+    })
+    .then(function(res){
+        console.log(res);
+                $('#sendtimetable_r').html('<div class="alert alert-success alert-dismissable fade in">'+
+    '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+    '<strong>Success!</strong> TimeTable submitted succesfully!'+
+  '</div>');
+        // $scope.ap=res.data;
+    },
+    function(err){
+                $('#sendtimetable_r').html('<div class="alert alert-danger alert-dismissable fade in">'+
+    '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+    '<strong>Error!</strong> Try again!'+
+  '</div>');
+    });
+};
+$scope.getAllTT = function() {
+    $http.get('http://localhost:6200/getalltt')
+    .then(function(res){
+        console.log(res);
+        $scope.timetable=res.data;
+    })
+};
+$scope.getAllTT();
+};
 function ApplicationCtrl($scope,$state,$http) {
 $scope.sendApp = function() {
     console.log($scope.app);
