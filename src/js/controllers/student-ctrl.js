@@ -45,6 +45,24 @@ $scope.getUser = function() {
     }
 };
 $scope.getUser();
+$scope.registerStudent=function(){
+    $http.post('http://localhost:6200/register',$scope.n)
+    .then(function(res){
+        console.log(res);
+        $('form')[0].reset();
+                $('#registerstudent_r').html('<div class="alert alert-success alert-dismissable fade in">'+
+    '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+    '<strong>Success!</strong> New Student registerd Succesfully!'+
+  '</div>');
+        // $scope.ap=res.data;
+    },
+    function(err){
+                $('#registerstudent_r').html('<div class="alert alert-danger alert-dismissable fade in">'+
+    '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
+    '<strong>Error!</strong> Try again!'+
+  '</div>');
+    });
+}
 $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
 };
