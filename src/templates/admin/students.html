@@ -30,29 +30,30 @@
                           <table class="table table-bordered table-hover">
                             <tr>
                               <th>Name</th>
-                              <th>F.Name</th>
+                              <!-- <th>F.Name</th> -->
                               <th>Roll No</th>
-                              <th>Email</th>
-                              <th>Contact</th>
-                              <th>Address</th>
+                              <!-- <th>Email</th> -->
+                              <!-- <th>Contact</th> -->
                               <th>Degree</th>
                               <th>Programe</th>
+                              <th>Action</th>
                               
                               <!-- <th class="text-center">Actions</th> -->
                             </tr>
                             <tr ng-repeat="s in students">
                               <td>{{s.name}}</td>
-                              <td>{{s.fathername}}</td>                              
+                              <!-- <td>{{s.fathername}}</td>                               -->
                               <td>{{s.rollno}}</td>
-                              <td>{{s.email}}</td>
-                              <td>{{s.contact}}</td>                              
-                              <td>{{a.address}}</td>
-                              <td>{{a.degree}}</td>
-                              <td>{{a.programe}}</td>
+                              <!-- <td>{{s.email}}</td> -->
+                              <!-- <td>{{s.contact}}</td>                               -->
+                              <!-- <td>{{a.address}}</td> -->
+                              <td>{{s.degree}}</td>
+                              <td>{{s.programe}}</td>
                               <!-- <td>{{a.smester}}</td> -->
-<!--                               
                               <td class="text-center">
-                                <button class="ms-btn-teal ms-btn-xs">view</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="viewStudent(s.rollno)"  >view</button>                              
+                              </td>
+                                <!--                               
                                 <button class="ms-btn-teal ms-btn-xs">update</button>
                                 <button class="ms-btn-red ms-btn-xs">delete</button>
                               </td> -->
@@ -67,67 +68,82 @@
                             <form name="userForm">
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Student Name</label>
-                                  <input required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.name" placeholder="name">
+                                  <input required type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.name" placeholder="name">
+                                  <p ng-show="userForm.name.$error.required && userForm.name.$touched" class="text-danger">Student Name is required</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Father Name</label>
-                                    <input required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.fathername" placeholder="father name">
-                                  </div>
+                                    <input required type="text" name="fname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.fathername" placeholder="father name">
+                                    <p ng-show="userForm.fname.$error.required && userForm.fname.$touched" class="text-danger">Father Name is required</p>
+                                </div>
                                   <div class="form-group">
                                     <label for="exampleInputEmail1">Email</label>
-                                    <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.email" placeholder="Email">
-                                  </div>
+                                    <input required type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.email" placeholder="Email">
+                                  <p ng-show="userForm.email.$error.required && userForm.email.$touched" class="text-danger">Email is required</p>
+                                  
+                                </div>
                                   <div class="form-group">
                                     <label for="exampleInputEmail1">Address</label>
-                                    <input  required  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.address" placeholder="Address">
-                                  </div>
+                                    <input  required  type="text" name="address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.address" placeholder="Address">
+                                    <p ng-show="userForm.address.$error.required && userForm.address.$touched" class="text-danger">Address is required</p>
+                                </div>
                                   <div class="form-group">
                                     <label for="exampleInputEmail1">Contact</label>
-                                    <input required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.contact" placeholder="Contact">
-                                  </div>
+                                    <input required type="text" name="contact" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.contact" placeholder="Contact">
+                                    <p ng-show="userForm.contact.$error.required && userForm.contact.$touched" class="text-danger">Contact is required</p>
+                                </div>
                                   <div class="form-group">
                                     <label for="exampleInputEmail1">Guardian Contact</label>
-                                    <input required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.fathercontact" placeholder="Guardian Contact">
-                                  </div>
+                                    <input required type="text" name="gcontact" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.fathercontact" placeholder="Guardian Contact">
+                                    <p ng-show="userForm.gcontact.$error.required && userForm.gcontact.$touched" class="text-danger">Gaurdian Contact is required</p>
+                                    
+                                </div>
                                   <div class="form-group">
                                     <label for="exampleInputEmail1">Password</label>
-                                    <input required type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.password" placeholder="Password">
-                                  </div>
+                                    <input required type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ng-model="user.password" placeholder="Password">
+                                    <p ng-show="userForm.password.$error.required && userForm.password.$touched" class="text-danger">Password is required</p>
+                                </div>
                                 <div class="form-group">
                                   <label for="exampleInputPassword1">Roll No</label>
-                                  <input required type="password" class="form-control" id="exampleInputPassword1" ng-model="user.rollno" placeholder="Roll-No">
+                                  <input required type="text" name="rollno" class="form-control" id="exampleInputPassword1" ng-model="user.rollno" placeholder="Roll-No">
+                                  <p ng-show="userForm.rollno.$error.required && userForm.rollno.$touched" class="text-danger">Roll No is required</p>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Reistration No</label>
-                                    <input required type="password" class="form-control" id="exampleInputPassword1" ng-model="user.registrationno" placeholder="Registration-No">
-                                  </div>
+                                    <input required type="text" name="registration" class="form-control" id="exampleInputPassword1" ng-model="user.registrationno" placeholder="Registration-No">
+                                    <p ng-show="userForm.registration.$error.required && userForm.registration.$touched" class="text-danger">Registration is required</p>                                    
+                                </div>
                                   <div class="form-group">
                                     <label for="exampleFormControlSelect1">Gegree</label>
-                                    <select required class="form-control" ng-model="user.degree"  id="exampleFormControlSelect1">
+                                    <select  name="degree" required class="form-control" ng-model="user.degree"  id="exampleFormControlSelect1">
                                       <option selected> Select Degree</option>
                                       <option value="">BSC</option>
                                       <option value="BS(hons)">BS(hons)</option>
                                       <option value="M.phil">M.phil</option>
                                       <option value="Phd">Phd</option>
                                     </select>
+                                  <p ng-show="userForm.degree.$error.required && userForm.degree.$touched" class="text-danger">Please Choose the Degree</p>
+                                  
                                   </div>
                                   <div class="form-group">
                                     <label for="exampleFormControlSelect1">Programe</label>
-                                    <select required class="form-control" ng-model="user.programe" id="exampleFormControlSelect1">
+                                    <select required name="programe" class="form-control" ng-model="user.programe" id="exampleFormControlSelect1">
                                         <option value="" selected >Slect Programe</option>
                                         <option value="CS">CS</option>
                                         <option value="SE">SE</option>
                                         <option value="IT">IT</option>
                                     </select>
+                                  <p ng-show="userForm.programe.$error.required && userForm.programe.$touched" class="text-danger">Please Choose the Programe</p>                                  
                                   </div>
                                   <div class="custom-control custom-radio custom-control-inline">
-                                    <input required type="radio" ng-model="user.gender" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                                    <input name="gender" required type="radio" ng-model="user.gender" value="male" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadioInline1">Male</label>
                                   </div>
                                   <div class="custom-control custom-radio custom-control-inline">
-                                    <input required type="radio" ng-model="user.gender" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                                    <input required name='gender' type="radio" ng-model="user.gender" value="female" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
                                     <label class="custom-control-label" for="customRadioInline2">Female</label>
                                   </div>
+                                  <!-- <p ng-show="userForm.gender.$error.required && userForm.gender.$touched" class="text-danger">Please Select Gender</p>                                   -->
                                 <button type="submit" ng-click="registerStudent()" ng-disabled="userForm.$invalid" class="btn btn-primary">Register Student</button>
                               </form>
                        <div id="registerstudent_r">
@@ -135,18 +151,62 @@
                         </div>
                     </div>
                 </div>
-                <div id="po" class="tab-pane fade  in padding-top-bottom-10">                        
-                    
-                   kr
-                </div>
-                <div id="do" class="tab-pane fade  in padding-top-bottom-10">
-                   ha wa
+            </div>
+            </div>            
+            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="gridSystemModalLabel">{{st.name}}</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-4">father Name</div>
+                      <div class="col-md-6 col-md-offset-2">{{st.fathername}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Roll No</div>
+                      <div class="col-md-6 col-md-offset-2">{{st.rollno}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Contact</div>
+                      <div class="col-md-6 col-md-offset-2">{{st.contact}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Email</div>
+                      <div class="col-md-6 col-md-offset-2">{{st.email}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Gaurdian Contact</div>
+                      <div class="col-md-6 col-md-offset-2">{{st.fathercontact}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Registration No</div>
+                      <div class="col-md-6 col-md-offset-2">{{st.registrationno}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Gender</div>
+                      <div class="col-md-6 col-md-offset-2">{{st.gender}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Degree</div>
+                      <div class="col-md-6 col-md-offset-2">{{st.degree}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Programe</div>
                    
-                </div>
-                <div id="ro" class="tab-pane fade in padding-top-bottom-10">
-                    
-                    kuj nai
-            
-                </div>
-            </div>
-            </div>
+                      <div class="col-md-6 col-md-offset-2">{{st.programe}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">Address</div>
+                      <div class="col-md-6 col-md-offset-2">{{st.address}}</div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->

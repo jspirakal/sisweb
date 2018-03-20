@@ -15,6 +15,7 @@ function ProfileCtrl($scope,$state,$http) {
 //     msg: 'Found a bug? Create an issue with as many details as you can.'
 // }];
 $scope.profile;
+$scope.st;
 // $scope.getUser = function() {
     // $.get('http://localhost:6200/getuser/13054119-158',function(data){
         // console.log(data);
@@ -46,7 +47,7 @@ $scope.getUser = function() {
 };
 $scope.getUser();
 $scope.registerStudent=function(){
-    $http.post('http://localhost:6200/register',$scope.n)
+    $http.post('http://localhost:6200/register',$scope.user)
     .then(function(res){
         console.log(res);
         $('form')[0].reset();
@@ -59,9 +60,21 @@ $scope.registerStudent=function(){
     function(err){
                 $('#registerstudent_r').html('<div class="alert alert-danger alert-dismissable fade in">'+
     '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
-    '<strong>Error!</strong> Try again!'+
+    '<strong>Error!</strong> '+err.data+'!'+
   '</div>');
-    });
+console.log(err);    
+});
+
+}
+$scope.viewStudent=function(id) {
+    $http.get('http://localhost:6200/getuser/'+id+'')    
+    .then(function(res){
+        $scope.st=res.data;
+        console.log($scope.st);
+    },
+    function(err){
+console.log(err);    
+});
 }
 $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
