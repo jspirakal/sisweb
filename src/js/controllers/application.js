@@ -46,7 +46,7 @@ $scope.getAllTT = function() {
         $scope.timetable=res.data;
     })
 };
-$scope.getAllTT();
+    $scope.getAllTT();
 };
 function ApplicationCtrl($scope,$state,$http) {
 $scope.sendApp = function() {
@@ -69,8 +69,8 @@ $scope.sendApp = function() {
     });
 
 };
-$scope.getApp = function() {
-    $http.get('http://localhost:6200/getapplications/13054119-158')
+$scope.getApp = function(id) {
+    $http.get('http://localhost:6200/getapplications/'+localStorage.getItem('rollno')+'')
     .then(function(res){
         console.log(res);
         $scope.ap=res.data;

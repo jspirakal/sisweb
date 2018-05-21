@@ -1,0 +1,103 @@
+<div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+    
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+          <ul class="sidebar">
+            <li class="sidebar-main">
+              <a ng-click="toggleSidebar()">
+              <!-- <img src="img/Unilogo.png" width="130px" height="50px"> -->
+               HOD
+                <span class="menu-icon glyphicon glyphicon-transfer"></span>
+              </a>
+            </li>
+            <!-- <li class="sidebar-title"><span>NAVIGATION</span></li> -->
+            <!-- <li class="sidebar-list">
+              <a ui-sref="admin.home">Home<span class="menu-icon fa fa-home"></span></a>
+            </li>
+            <li class="sidebar-list">
+              <a ui-sref="admin.students">Students<span class="menu-icon fa fa-user"></span></a>
+            </li> -->
+            <li class="sidebar-list">
+              <a ui-sref="admin.applications">Applications<span class="menu-icon fa fa-table"></span></a>
+            </li>
+            <!-- <li class="sidebar-list">
+              <a ui-sref="admin.news">News<span class="menu-icon fa fa-clipboard"></span></a>
+            </li>
+            <li class="sidebar-list">
+              <a ui-sref="admin.timetable">Timetable<span class="menu-icon fa fa-table"></span></a>
+            </li> -->
+          </ul>
+          <!-- <div class="sidebar-footer">
+            <div class="col-xs-4">
+              <a href="https://github.com/rdash/rdash-angular" target="_blank">
+                Github
+              </a>
+            </div>
+            <div class="col-xs-4">
+              <a href="https://github.com/rdash/rdash-angular/blob/master/README.md" target="_blank">
+                About
+              </a>
+            </div>
+            <div class="col-xs-4">
+              <a href="#">
+                Support
+              </a>
+            </div>
+          </div> -->
+        </div>
+        <!-- End Sidebar -->
+    
+        <div id="content-wrapper">
+          <div class="page-content">
+    
+            <!-- Header Bar -->
+            <div class="row header">
+              <div class="col-xs-12">
+                <div class="user pull-right">
+                  <div class="item dropdown" uib-dropdown>
+                    <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                      <img src="img/avatar.jpg">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li class="link">
+                        <a href="/">
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="item dropdown" uib-dropdown>
+                   <a href="#" class="dropdown-toggle" uib-dropdown-toggle>
+                      <i class="fa fa-bell-o"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li class="dropdown-header">
+                        Notifications
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <a href="#">Server Down!</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- <div class="meta">
+                  <div class="page">
+                    Dashboard
+                  </div>
+                  <div class="breadcrumb-links">
+                    Home / Dashboard
+                  </div>
+                </div> -->
+                              <img src="img/Unilogo.png" width="110px" height="50px">
+
+              </div>
+            </div>
+            <!-- End Header Bar -->
+    
+            <!-- Main Content -->
+            <div class="" style="padding:10px" ui-view></div>
+    
+          </div><!-- End Page Content -->
+        </div><!-- End Content Wrapper -->
+      </div><!-- End Page Wrapper -->

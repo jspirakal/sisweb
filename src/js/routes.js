@@ -76,5 +76,25 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 templateUrl: 'templates/admin/news.html',
                 controller:'News'
             })
+            .state('controller', {
+                url: '/controller',
+                templateUrl: 'templates/controller/controller.html',
+                controller:'controller'                                
+            })
+             .state('controller.applications', {
+                url: '/applications',
+                templateUrl: 'templates/controller/applications.html',
+                controller:'controller'                
+            })
+            .state('hod', {
+                url: '/hod',
+                templateUrl: 'templates/hod/hod.html',
+                controller:'hod'
+            })
+             .state('hod.applications', {
+                url: '/applications',
+                templateUrl: 'templates/hod/applications.html',
+                controller:'hod'                
+            })
     }
 ]);

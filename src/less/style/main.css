@@ -10,6 +10,9 @@ font-size: 16px;
     .mar-b-20{
             margin-bottom: 20px;
     }
+    .mar-b-40{
+        margin-bottom: 40px;
+}
     .mar-b-10{
         margin-bottom: 10px;
 }
@@ -35,4 +38,27 @@ font-size: 16px;
 }
 .form-control:input{
     height: 40px !important;
+}
+.pending-app{
+    background-color: #f4433682;
+    color: #fff;
+    border-left: 3px solid #F44336;
+    padding: 5px;
+    border-radius: 0px 2px 2px 0px;
+}
+.reply-app{
+    background-color: #4caf508f;
+    color: #fff;
+    border-left: 3px solid #4CAF50;
+    padding: 5px;
+    border-radius: 0px 2px 2px 0px;
+    transition: ease-out .3s;
+}
+.reply-app:hover{
+    background-color: rgb(88, 175, 91);
+    color: #fff;
+    border-left: 3px solid #4CAF50;
+    padding: 5px;
+    border-radius: 0px 2px 2px 0px;
+    cursor: pointer;
 }

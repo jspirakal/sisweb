@@ -36,14 +36,35 @@
                                 <div class="col-lg-12 col-md-2 col-sm-12 col-xs-12 mar-b-20">
                                         <span class="">{{app.body}}</span>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mar-b-20">
                                         <span class="text-dim">{{app.date|date:'medium'}}</span>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.status==1">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==1">
                                         <button class="btn btn-success" data-toggle="modal" data-target="#myModal2" ng-click="viewReply(app._id)">View Reply</button>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.status==0">
-                                        <button class="btn btn-info" ng-readonly="true" >Pending</button>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                    <span class="pending-app"> <i class="fa fa-clock-o"></i> admin </span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                    <span class="reply-app"> <i class="fa fa-check"></i> admin </span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                    <span class="pending-app"> <i class="fa fa-clock-o"></i> Controller </span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                    <span class="reply-app"> <i class="fa fa-check"></i> Controller </span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                    <span class="pending-app"> <i class="fa fa-clock-o"></i> HOD </span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                    <span class="reply-app"> <i class="fa fa-check"></i> Controller </span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                    <span class="pending-app"> <i class="fa fa-clock-o"></i> Final </span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                    <span class="reply-app"> <i class="fa fa-check"></i> Final </span>
                                 </div>
 
                         </div>

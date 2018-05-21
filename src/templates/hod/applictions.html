@@ -1,0 +1,124 @@
+<div class="col-md-12" style="border-bottom:1px solid #eee;">
+    <div class="row">
+        <nav class="text-center tabo-nav">
+            <ul class="nav nav-tabs tabo" >
+                <li class="active" ><a class=" font-bold text-black" data-target="#ao" href=""  data-toggle="pill" ><i class="fa fa-square-o"></i> All Applications</a><div class="over" id="blockbusiness" ></div>
+                    </li>
+                    <li ><a class=" font-bold text-black" data-target="#no" href=""  data-toggle="pill" ><i class="fa fa-clock-o"></i> Complains</a><div class="over" id="blockbusiness" ></div>
+                       </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div class="tab-content tsb-cont col-md-12">
+    <div id="ao" class="tab-pane fade active in padding-top-bottom-10">
+      <div class="widget col-lg-10 col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1 mar-b-20 " ng-repeat="app in ap" ng-if="app.type=='general'">
+            <div class="widget-body"> 
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20">
+                <span class="text-dim font-16 bold text ">{{app.title}}</span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text bold text-right">
+                    Type: <span class="text-dim font-14 text font-thin ">{{app.type}}</span>
+                </div>
+                <div class="col-lg-12 col-md-2 col-sm-12 col-xs-12 mar-b-20">
+                    <span class="">{{app.body}}</span>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mar-b-20">
+                    RollNo: <span class="text-dim font-thin">{{app.rollno}}</span>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mar-b-20">
+                    Name: <span class="text-dim font-thin">{{app.name}}</span>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mar-b-20">
+                    Department: <span class="text-dim font-thin">{{app.degree}}-{{app.programe}}</span>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mar-b-20">
+                    Smester:  <span class="text-dim font-thin">{{app.smester}}</span>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mar-b-20">
+                    Date:  <span class="text-dim font-thin">{{app.date|date:'medium'}}</span>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mar-b-20 text-right" ng-if="app.status==0">
+                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id)">Reply</button>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mar-b-20 text-right" ng-if="app.status==1">
+                        <button class="btn btn-success" ng-readonly="true" >Replied</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="no" class="tab-pane fade  in padding-top-bottom-10">
+            <div class="widget col-lg-10 col-md-10 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1 mar-b-20 " ng-repeat="app in ap" ng-if="app.type=='complain'" >
+                    <div class="widget-body"> 
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20">
+                        <span class="text-dim font-16 bold text ">{{app.title}}</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text bold text-right">
+                            <span class="text-dim font-14 text font-thin ">{{app.type}}</span>
+                        </div>
+                        <div class="col-lg-12 col-md-2 col-sm-12 col-xs-12 mar-b-20">
+                                <span class="">{{app.body}}</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20">
+                                <span class="text-dim">{{app.date|date:'medium'}}</span>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.status==0">
+                            <button class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id)">Reply</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.status==1">
+                                <button class="btn btn-success" ng-readonly="true" >Replied</button>
+                            </div>
+
+                    </div>
+                </div>
+    </div>
+    <div id="po" class="tab-pane fade  in padding-top-bottom-10">                        
+        
+       kr
+    </div>
+    <div id="do" class="tab-pane fade  in padding-top-bottom-10">
+       ha wa
+       
+    </div>
+    <div id="ro" class="tab-pane fade in padding-top-bottom-10">
+        
+        kuj nai
+
+    </div>
+</div>
+</div>
+<!-- <div class="container">
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Large Modal</button>
+   -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title bold text-success font-16">Application Reply</h4>
+          </div>
+          <div class="modal-body">
+            <form action="" ng-submit="sendApp()">
+            
+            <div class="form-group">
+                <input placeholder="Reply Title" type="text" name="rollno" ng-model="reply.title" id="" class="form-control">
+            </div>
+           
+            <div class="form-group">
+                
+                <textarea placeholder="Enter your Reply" rows="5" type="text" name="password" ng-model="reply.body" id="" class="form-control">
+                </textares>
+            </div>
+            <div class="form-group">
+            <button type="button" ng-click="replyApp(selectedappid)" class="btn btn-primary"><i class="fa fa-send"></i>Reply</button>
+            </div>
+            </form>
+               <div id="replyapp_r">
+               </div> 
+          </div>
+          
+        </div>
+      </div>
+    </div>

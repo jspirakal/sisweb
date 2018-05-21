@@ -20,12 +20,22 @@ function LoginCtrl($scope,$state,$http,$location) {
             localStorage.setItem('user',res.user);   
             window.location='/#!/user/home';
         }
-          else{
+          else if(res.user==='admin'){
               console.log(res);
             localStorage.setItem('rollno',res.rollno);
             localStorage.setItem('token',res.token);            
             localStorage.setItem('user',res.user);   
             window.location='/#!/admin/home';
+        } else if(res.user==='controller'){
+            localStorage.setItem('rollno',res.rollno);
+            localStorage.setItem('token',res.token);            
+            localStorage.setItem('user',res.user);   
+            window.location='/#!/controller/applications';
+        } else {
+            localStorage.setItem('rollno',res.rollno);
+            localStorage.setItem('token',res.token);            
+            localStorage.setItem('user',res.user);   
+            window.location='/#!/hod/applications';
         }
         },
         error:function(err){
