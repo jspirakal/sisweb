@@ -79,22 +79,22 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('controller', {
                 url: '/controller',
                 templateUrl: 'templates/controller/controller.html',
-                controller:'controller'                                
+                controller:'Controller'                                
             })
              .state('controller.applications', {
                 url: '/applications',
                 templateUrl: 'templates/controller/applications.html',
-                controller:'controller'                
+                controller:'Controller'                
             })
             .state('hod', {
                 url: '/hod',
                 templateUrl: 'templates/hod/hod.html',
-                controller:'hod'
+                controller:'Hod'
             })
              .state('hod.applications', {
                 url: '/applications',
                 templateUrl: 'templates/hod/applications.html',
-                controller:'hod'                
+                controller:'Hod'                
             })
     }
 ]);

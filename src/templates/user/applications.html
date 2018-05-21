@@ -39,31 +39,29 @@
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mar-b-20">
                                         <span class="text-dim">{{app.date|date:'medium'}}</span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==1">
-                                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal2" ng-click="viewReply(app._id)">View Reply</button>
-                                </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.admin===false">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> admin </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal2" ng-click="viewAdminReply(app._id)" ng-if="app.admin===true">
                                     <span class="reply-app"> <i class="fa fa-check"></i> admin </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.controller===false">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> Controller </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal2" ng-click="viewControllerReply(app._id)" ng-if="app.controller===true">
                                     <span class="reply-app"> <i class="fa fa-check"></i> Controller </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.hod===false">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> HOD </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
-                                    <span class="reply-app"> <i class="fa fa-check"></i> Controller </span>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal2" ng-click="viewHodReply(app._id)" ng-if="app.hod==true">
+                                    <span class="reply-app"> <i class="fa fa-check"></i> HOD </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.admin==false">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> Final </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.status==0">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal3" ng-click="viewHodReply(app._id)" ng-if="app.admin==true">
                                     <span class="reply-app"> <i class="fa fa-check"></i> Final </span>
                                 </div>
 
@@ -133,6 +131,26 @@
                         <div class="modal-body">
                          <p class="text">{{reply.title}}</p>
                          <p class="">{{reply.body}}</p>
+                         
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal fade" id="myModal3" role="dialog">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title bold text font-16">Application Response</h4>
+                        </div>
+                        <div class="modal-body">
+                         <div class="text">Admin</div>
+                         <p class="">{{reply.admin}}</p>
+                         <div class="text">Controller</div>
+                         <p class="">{{reply.controller}}</p>
+                         <div class="text">Hod</div>
+                         <p class="">{{reply.hod}}</p>
                          
                         </div>
                         
