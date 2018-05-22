@@ -43,7 +43,7 @@
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.admin===false">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> admin </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal2" ng-click="viewAdminReply(app._id)" ng-if="app.admin===true">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal1" ng-click="viewAdminReply(app._id)" ng-if="app.admin===true">
                                     <span class="reply-app"> <i class="fa fa-check"></i> admin </span>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.controller===false">
@@ -55,13 +55,13 @@
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.hod===false">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> HOD </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal2" ng-click="viewHodReply(app._id)" ng-if="app.hod==true">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal3" ng-click="viewHodReply(app._id)" ng-if="app.hod==true">
                                     <span class="reply-app"> <i class="fa fa-check"></i> HOD </span>
                                 </div>
                                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.admin==false">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> Final </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal3" ng-click="viewHodReply(app._id)" ng-if="app.admin==true">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal4" ng-click="viewHodReply(app._id)" ng-if="app.admin==true">
                                     <span class="reply-app"> <i class="fa fa-check"></i> Final </span>
                                 </div>
 
@@ -121,39 +121,67 @@
                 </div>
             </div>
             </div>
+            <div class="modal fade" id="myModal1" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title bold text font-16">Admin Comment</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="">{{reply.admin}}</p>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
             <div class="modal fade" id="myModal2" role="dialog">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title bold text font-16">Reply Application</h4>
-                        </div>
-                        <div class="modal-body">
-                         <p class="text">{{reply.title}}</p>
-                         <p class="">{{reply.body}}</p>
-                         
-                        </div>
-                        
-                      </div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title bold text font-16">Controller Comment</h4>
                     </div>
-                  </div>
-                  <div class="modal fade" id="myModal3" role="dialog">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title bold text font-16">Application Response</h4>
-                        </div>
-                        <div class="modal-body">
-                         <div class="text">Admin</div>
-                         <p class="">{{reply.admin}}</p>
-                         <div class="text">Controller</div>
-                         <p class="">{{reply.controller}}</p>
-                         <div class="text">Hod</div>
-                         <p class="">{{reply.hod}}</p>
-                         
-                        </div>
-                        
-                      </div>
+                    <div class="modal-body">
+                        <p class="">{{reply.controller}}</p>
                     </div>
-                  </div>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal3" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title bold text font-16">HOD Comment</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="">{{reply.hod}}</p>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myModal4" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title bold text font-16">Application Response</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text">Admin</div>
+                        <p class="mar-l-40">{{reply.admin}}</p>
+                        <div class="text">Controller</div>
+                        <p class="mar-l-40 text-danger" ng-if="reply.controller===null">pending</p>
+                        <p class="mar-l-40">{{reply.controller}}</p>
+                        <div class="text">Hod</div>
+                        <p class="mar-l-40 text-danger" ng-if="reply.hod===null">pending</p>                        
+                        <p class="mar-l-40">{{reply.hod}}</p>
+                        
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>

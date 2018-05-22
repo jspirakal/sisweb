@@ -138,13 +138,22 @@ function AdminApp($scope,$state,$http) {
             $scope.ap=res.data;
         })
     };
+    $scope.seachForAdmin= function (rn) {
+        $http.get('http://localhost:6200/getapplicationbyrollno/admin/'+rn+'')
+        .then(function(res){
+            console.log(res);
+            $scope.ap=res.data;
+        })
+    }
     $scope.appReply=function (id) {
      $scope.selectedappid=id;
     }
     $scope.replyApp=function(id){
-        $scope.reply.appid=id;
-        $http.post('http://localhost:6200/replyapplication',$scope.reply)
+        // $scope.reply.appid=id;
+        $http.post('http://localhost:6200/replyapplicationbyadmin/'+id+'',$scope.reply)
         .then(function(res){
+            $scope.getAllApp();
+            $('form')[0].reset();            
             $('#replyapp_r').html('<div class="alert alert-success alert-dismissable fade in">'+
             '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
             '<strong>Success!</strong> Application replied succesfully!'+
@@ -157,8 +166,19 @@ function AdminApp($scope,$state,$http) {
         })
     }
     $scope.getAllApp();
+    $scope.refreshApplications=function(){
+        $scope.searchrollno='';
+        $scope.getAllApp();    
+    }
     }
     function ControllerApp($scope,$state,$http) {
+        $scope.seachForController= function (rn) {
+            $http.get('http://localhost:6200/getapplicationbyrollno/controller/'+rn+'')
+            .then(function(res){
+                console.log(res);
+                $scope.ap=res.data;
+            })
+        }
         $scope.sendApp = function() {
             if($scope.app.type==='general')
             {
@@ -190,9 +210,10 @@ function AdminApp($scope,$state,$http) {
          $scope.selectedappid=id;
         }
         $scope.replyApp=function(id){
-            $scope.reply.appid=id;
-            $http.post('http://localhost:6200/replyapplication',$scope.reply)
+            $http.post('http://localhost:6200/replyapplicationbycontroller/'+id+'',$scope.reply)
             .then(function(res){
+                $scope.getAllApp();  
+            $('form')[0].reset();                        
                 $('#replyapp_r').html('<div class="alert alert-success alert-dismissable fade in">'+
                 '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
                 '<strong>Success!</strong> Application replied succesfully!'+
@@ -205,9 +226,20 @@ function AdminApp($scope,$state,$http) {
             })
         }
         $scope.getAllApp();
+        $scope.refreshApplications=function(){
+            $scope.searchrollno='';
+            $scope.getAllApp();    
+        }
         }
         
         function HodApp($scope,$state,$http) {
+            $scope.seachForHod= function (rn) {
+                $http.get('http://localhost:6200/getapplicationbyrollno/hod/'+rn+'')
+                .then(function(res){
+                    console.log(res);
+                    $scope.ap=res.data;
+                })
+            }
             $scope.sendApp = function() {
                 if($scope.app.type==='general')
                 {
@@ -239,9 +271,10 @@ function AdminApp($scope,$state,$http) {
              $scope.selectedappid=id;
             }
             $scope.replyApp=function(id){
-                $scope.reply.appid=id;
-                $http.post('http://localhost:6200/replyapplicationbyhod',$scope.reply)
+                $http.post('http://localhost:6200/replyapplicationbyhod/'+id+'',$scope.reply)
                 .then(function(res){
+                    $scope.getAllApp();
+                    $('form')[0].reset();                        
                     $('#replyapp_r').html('<div class="alert alert-success alert-dismissable fade in">'+
                     '<a  class="close" data-dismiss="alert" aria-label="close">&times;</a>'+
                     '<strong>Success!</strong> Application replied succesfully!'+
@@ -254,5 +287,9 @@ function AdminApp($scope,$state,$http) {
                 })
             }
             $scope.getAllApp();
+            $scope.refreshApplications=function(){
+                $scope.searchrollno='';
+                $scope.getAllApp();    
+            }
             }
             
