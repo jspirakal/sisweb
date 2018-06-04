@@ -111,6 +111,9 @@ $scope.viewFinalReply=function(id){
 }
 
 function AdminApp($scope,$state,$http) {
+    $scope.reply={
+
+    };
     $scope.sendApp = function() {
         if($scope.app.type==='general')
         {
@@ -145,11 +148,14 @@ function AdminApp($scope,$state,$http) {
             $scope.ap=res.data;
         })
     }
-    $scope.appReply=function (id) {
+    $scope.appReply=function (id,rt) {
      $scope.selectedappid=id;
+     $scope.reply.replyType= rt;     
     }
+
     $scope.replyApp=function(id){
         // $scope.reply.appid=id;
+        console.log($scope.reply)
         $http.post('http://localhost:6200/replyapplicationbyadmin/'+id+'',$scope.reply)
         .then(function(res){
             $scope.getAllApp();
@@ -172,6 +178,9 @@ function AdminApp($scope,$state,$http) {
     }
     }
     function ControllerApp($scope,$state,$http) {
+        $scope.reply={
+
+        };
         $scope.seachForController= function (rn) {
             $http.get('http://localhost:6200/getapplicationbyrollno/controller/'+rn+'')
             .then(function(res){
@@ -206,8 +215,9 @@ function AdminApp($scope,$state,$http) {
                 $scope.ap=res.data;
             })
         };
-        $scope.appReply=function (id) {
+        $scope.appReply=function (id,rt) {
          $scope.selectedappid=id;
+         $scope.reply.replyType= rt;
         }
         $scope.replyApp=function(id){
             $http.post('http://localhost:6200/replyapplicationbycontroller/'+id+'',$scope.reply)
@@ -233,6 +243,9 @@ function AdminApp($scope,$state,$http) {
         }
         
         function HodApp($scope,$state,$http) {
+            $scope.reply={
+
+            };
             $scope.seachForHod= function (rn) {
                 $http.get('http://localhost:6200/getapplicationbyrollno/hod/'+rn+'')
                 .then(function(res){
@@ -267,8 +280,9 @@ function AdminApp($scope,$state,$http) {
                     $scope.ap=res.data;
                 })
             };
-            $scope.appReply=function (id) {
-             $scope.selectedappid=id;
+            $scope.appReply=function (id,rt) {
+                $scope.selectedappid=id;
+                $scope.reply.replyType= rt;         
             }
             $scope.replyApp=function(id){
                 $http.post('http://localhost:6200/replyapplicationbyhod/'+id+'',$scope.reply)

@@ -40,29 +40,38 @@
                                         <span class="text-dim">{{app.date|date:'medium'}}</span>
                                 </div>
                                 
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.admin===false">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.admin===null">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> admin </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal1" ng-click="viewAdminReply(app._id)" ng-if="app.admin===true">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal1" ng-click="viewAdminReply(app._id)" ng-if="app.admin==='reject'">
+                                    <span class="reject-app"> <i class="fa fa-ban"></i> admin </span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal1" ng-click="viewAdminReply(app._id)" ng-if="app.admin==='approve'">
                                     <span class="reply-app"> <i class="fa fa-check"></i> admin </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.controller===false">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.controller===null">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> Controller </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal2" ng-click="viewControllerReply(app._id)" ng-if="app.controller===true">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal2" ng-click="viewControllerReply(app._id)" ng-if="app.controller==='reject'">
+                                    <span class="reject-app"> <i class="fa fa-ban"></i> Controller</span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal2" ng-click="viewControllerReply(app._id)" ng-if="app.controller==='approve'">
                                     <span class="reply-app"> <i class="fa fa-check"></i> Controller </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.hod===false">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.hod===null">
                                     <span class="pending-app"> <i class="fa fa-clock-o"></i> HOD </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal3" ng-click="viewHodReply(app._id)" ng-if="app.hod==true">
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal3" ng-click="viewHodReply(app._id)" ng-if="app.hod==='reject'">
+                                    <span class="reject-app"> <i class="fa fa-ban"></i> HOD </span>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal3" ng-click="viewHodReply(app._id)" ng-if="app.hod=='approve'">
                                     <span class="reply-app"> <i class="fa fa-check"></i> HOD </span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.admin==false">
-                                    <span class="pending-app"> <i class="fa fa-clock-o"></i> Final </span>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" ng-if="app.admin==null">
+                                    <span class="pending-app"> <i class="fa fa-clock-o"></i> View</span>
                                 </div>
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal4" ng-click="viewHodReply(app._id)" ng-if="app.admin==true">
-                                    <span class="reply-app"> <i class="fa fa-check"></i> Final </span>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mar-b-20 text-right" data-toggle="modal" data-target="#myModal4" ng-click="viewHodReply(app._id)" ng-if="app.admin=='approve' || app.admin=='reject'">
+                                    <span class="reply-app"> <i class="fa fa-eye"></i> View </span>
                                 </div>
 
                         </div>

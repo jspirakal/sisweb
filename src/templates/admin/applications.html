@@ -54,13 +54,23 @@
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mar-b-20">
                                 Date:  <span class="text-dim font-thin">{{app.date|date:'medium'}}</span>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mar-b-20 text-right" ng-if="app.admin===false">
-                                <button class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id)"><i class="fa fa-clock-o"></i> Reply</button>
+                            <div class="row">
+                            <div class="col-g-16 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.admin===null">
+                                <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id,'reject')"><i class="fa fa-clock-o"></i> Reject </button>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mar-b-20 text-right" ng-if="app.admin===true">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.admin===null || app.admin==='reject'">
+                                <button class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id,'approve')"><i class="fa fa-clock-o"></i> Approve </button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.admin==='reject'">
+                                <button class="btn btn-danger" ng-readonly="true" ><i class="fa fa-ban"></i> Rejected </button>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.admin==='approve'">
                                     <button class="btn btn-success" ng-readonly="true" ><i class="fa fa-check"></i> Replied</button>
                             </div>
-                        </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.controller==='reject'">
+                                    <sapn class="reject-app" ng-readonly="true" >Rejected By Controller</span>
+                            </div>
+                            </div>
                     </div>
                     <div ng-if="ap.length===0" >
                             <div class="text-center mar-t-40" style="color:red">
@@ -98,19 +108,6 @@
                                     </div>
                             </div>
                 </div>
-                <div id="po" class="tab-pane fade  in padding-top-bottom-10">                        
-                    
-                   kr
-                </div>
-                <div id="do" class="tab-pane fade  in padding-top-bottom-10">
-                   ha wa
-                   
-                </div>
-                <div id="ro" class="tab-pane fade in padding-top-bottom-10">
-                    
-                    kuj nai
-            
-                </div>
             </div>
             </div>
             <!-- <div class="container">
@@ -122,14 +119,14 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title bold text-success font-16">Application Reply</h4>
+                        <h4 class="modal-title bold text-success font-16">Application Comment</h4>
                       </div>
                       <div class="modal-body">
                         <form action="" ng-submit="sendApp()">
                         
                         <div class="form-group">
                             
-                            <textarea placeholder="Enter your comment" rows="5" type="text" name="password" ng-model="reply.body" id="" class="form-control">
+                            <textarea placeholder="Enter your comment" rows="5" type="text"  ng-model="reply.body" id="" class="form-control">
                             </textares>
                         </div>
                         <div class="form-group">

@@ -54,11 +54,17 @@
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mar-b-20">
                     Date:  <span class="text-dim font-thin">{{app.date|date:'medium'}}</span>
                 </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mar-b-20 text-right" ng-if="app.hod===false">
-                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id)">Reply</button>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod===null">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id,'reject')">Reject</button>
                 </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mar-b-20 text-right" ng-if="app.hod===true">
-                        <button class="btn btn-success" ng-readonly="true" >Replied</button>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod===null || app.hod==='reject'">
+                    <button class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id,'approve')">Approve</button>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod==='approve'">
+                    <button class="btn btn-success" ng-readonly="true" >Replied</button>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod==='reject'">
+                    <sapn class="reject-app" ng-readonly="true" >Rejected</span>
                 </div>
             </div>
         </div>
@@ -83,12 +89,18 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20">
                                 <span class="text-dim">{{app.date|date:'medium'}}</span>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod===false">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod===null">
                             <button class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id)">Reply</button>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod===true">
-                                <button class="btn btn-success" ng-readonly="true" >Replied</button>
-                            </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod===null || app.hod==='reject'">
+                            <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" ng-click="appReply(app._id)">Reject</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod==='approve'">
+                            <button class="btn btn-success" ng-readonly="true" >Replied</button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mar-b-20 text-right" ng-if="app.hod==='reject'">
+                            <sapn class="reject-app" ng-readonly="true" >Rejected</span>
+                        </div>
 
                     </div>
                 </div>

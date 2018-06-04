@@ -48,26 +48,28 @@ padding: 0px;
 .form-control:input{
     height: 40px !important;
 }
-.pending-app{
-    background-color: #f4433682;
-    color: #fff;
+.reject-app{
+    color: #F44336;
     border-left: 3px solid #F44336;
-    padding: 5px;
+    padding: 0px 0px 0px 5px;
     border-radius: 0px 2px 2px 0px;
+    cursor: pointer;
+}
+.pending-app{
+    color: #FF9800;
+    border-left: 3px solid #FF9800;
+    padding: 0px 0px 0px 5px;
+    border-radius: 0px 2px 2px 0px;
+    cursor: pointer;
 }
 .reply-app{
-    background-color: #4caf508f;
-    color: #fff;
+    color: #4caf508f;
     border-left: 3px solid #4CAF50;
-    padding: 5px;
+    padding: 0px 0px 0px 5px;
     border-radius: 0px 2px 2px 0px;
     transition: ease-out .3s;
+    cursor: pointer;
 }
 .reply-app:hover{
-    background-color: rgb(88, 175, 91);
-    color: #fff;
-    border-left: 3px solid #4CAF50;
-    padding: 5px;
-    border-radius: 0px 2px 2px 0px;
     cursor: pointer;
 }
