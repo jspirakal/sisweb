@@ -1,75 +1,74 @@
-.font-16{
-font-size: 16px;
+.font-16 {
+  font-size: 16px;
 }
-.font-20{
-    font-size: 20px;
-    }
-    .font-30{
-        font-size: 30px;
-        }
-    .mar-b-20{
-            margin-bottom: 20px;
-    }
-    .mar-t-40{
-        margin-top: 40px;
-    }
-    .mar-b-40{
-        margin-bottom: 40px;
+.font-20 {
+  font-size: 20px;
 }
-.mar-l-40{
-    margin-left: 40px;
+.font-30 {
+  font-size: 30px;
 }
-    .mar-b-10{
-        margin-bottom: 10px;
+.mar-b-20 {
+  margin-bottom: 20px;
 }
-.bold{
-    font-weight: bold;
+.mar-t-40 {
+  margin-top: 40px;
+}
+.mar-b-40 {
+  margin-bottom: 40px;
+}
+.mar-l-40 {
+  margin-left: 40px;
+}
+.mar-b-10 {
+  margin-bottom: 10px;
+}
+.bold {
+  font-weight: bold;
 }
 .text-dim {
-    color: #555;
+  color: #555;
 }
-.text{
-    color:#30426a; 
+.text {
+  color: #30426a;
 }
-.padding-top-bottom-10{
-    padding-top:10px;
-    padding-bottom:10px;
-    
+.padding-top-bottom-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.padding-0{
-padding: 0px;
+.padding-0 {
+  padding: 0px;
 }
-.font-thin{
-    font-weight:300;
+.font-thin {
+  font-weight: 300;
 }
-.navbar-brand{
-    padding: 0px;
+.navbar-brand {
+  padding: 0px;
 }
-.form-control:input{
-    height: 40px !important;
+.form-control:input {
+  height: 40px !important;
 }
-.reject-app{
-    color: #F44336;
-    border-left: 3px solid #F44336;
-    padding: 0px 0px 0px 5px;
-    border-radius: 0px 2px 2px 0px;
-    cursor: pointer;
+.reject-app {
+  color: #F44336;
+  border-left: 3px solid #F44336;
+  padding: 0px 0px 0px 5px;
+  border-radius: 0px 2px 2px 0px;
+  cursor: pointer;
 }
-.pending-app{
-    color: #FF9800;
-    border-left: 3px solid #FF9800;
-    padding: 0px 0px 0px 5px;
-    border-radius: 0px 2px 2px 0px;
-    cursor: pointer;
+.pending-app {
+  color: #FF9800;
+  border-left: 3px solid #FF9800;
+  padding: 0px 0px 0px 5px;
+  border-radius: 0px 2px 2px 0px;
+  cursor: pointer;
 }
-.reply-app{
-    color: #4caf508f;
-    border-left: 3px solid #4CAF50;
-    padding: 0px 0px 0px 5px;
-    border-radius: 0px 2px 2px 0px;
-    transition: ease-out .3s;
-    cursor: pointer;
+.reply-app {
+  color: #4caf508f;
+  border-left: 3px solid #4CAF50;
+  padding: 0px 0px 0px 5px;
+  border-radius: 0px 2px 2px 0px;
+  transition: ease-out 0.3s;
+  cursor: pointer;
 }
-.reply-app:hover{
-    cursor: pointer;
+.reply-app:hover {
+  cursor: pointer;
 }
